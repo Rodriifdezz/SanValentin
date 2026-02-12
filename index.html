@@ -8,36 +8,38 @@
     body{font-family:system-ui,Arial;margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff}
     .card{width:min(520px,92vw);background:#0b1220;border:1px solid #24304a;border-radius:20px;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.45);text-align:center;animation:bounce 2s ease-in-out infinite}
     @keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
-    h1{margin:0 0 10px;color:#ff4d8d;animation:pulse 2s ease-in-out infinite}
+    h1{margin:0 0 10px;color:#ff4d8d;font-size:clamp(24px,6vw,36px);animation:pulse 2s ease-in-out infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.8}}
-    p{line-height:1.5;opacity:.92}
-    small{display:block;margin-top:10px;color:#ffd166}
-    .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;justify-content:center}
-    button{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer;font-size:15px;transition:.2s}
-    button:hover{transform:scale(1.08); box-shadow:0 8px 20px rgba(255,77,141,.4)}
+    p{line-height:1.6;opacity:.95;font-size:clamp(14px,4vw,16px)}
+    .subtitle{display:block;margin-top:12px;font-size:clamp(13px,3.5vw,15px);color:#ff99b2;font-style:italic}
+    .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;justify-content:center}
+    button{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer;font-size:clamp(13px,3vw,15px);transition:.2s;flex:1;min-width:120px;max-width:180px}
+    @media(max-width:480px){button{min-width:100%;flex:auto}}
+    button:hover{transform:scale(1.08);box-shadow:0 8px 20px rgba(255,77,141,.4)}
+    button:active{transform:scale(0.95)}
     .yes{background:#ff4d8d;color:#0b0f1a}
-    .more{background:#ffd166;color:#0b0f1a}
+    .more{background:#ff99b2;color:#0b0f1a}
     .no{background:#334155;color:#fff;position:relative}
-    .tiny{margin-top:14px;font-size:12px;opacity:.7}
+    .tiny{margin-top:16px;font-size:clamp(11px,2.5vw,13px);opacity:.6}
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>🚨 SOLICITUD OFICIAL 🚨</h1>
+    <h1>Te amo 💕</h1>
     <p>
-      Tras un exhaustivo proceso electoral donde GANÉ por mayoría absoluta 
-      (votando 2 veces para estar seguro):
-      <br><br><b>Te ofrezco el trabajo de: Mi San Valentín 💘</b>
-      <br><br><small>📋 Beneficios incluyen: compañía, besos ilimitados, abrazos gratis y cumplidos mediocres</small>
+      No necesitaba San Valentín para amarte, pero aprovecho la excusa
+      para decirte lo mucho que significas para mí.
+      <br><br><b>¿Quieres ser mi San Valentín?</b>
+      <span class="subtitle">✨ (y todos los días además) ✨</span>
     </p>
 
     <div class="btns">
-      <button class="yes" onclick="accept('Sí, dame el contrato YA')">✅ Sí, dame el puesto</button>
-      <button class="more" onclick="accept('Sí, pero quiero BONUS de besos 💋')">💋 Con bonus de besos</button>
-      <button class="no" id="noBtn">❌ Busco otra cosa</button>
+      <button class="yes" onclick="accept('Sí, claro que sí 💕')">❤️ Sí, obvio</button>
+      <button class="more" onclick="accept('Sí, con besos incluidos 💋')">💋 Con besitos</button>
+      <button class="no" id="noBtn">🚀 Intenta escapar</button>
     </div>
 
-    <div class="tiny">*El botón “No” es decorativo.</div>
+    <div class="tiny">* El botón rojo tiene miedo, ¡intenta tocarlo! 😉</div>
   </div>
 
   <script>
@@ -67,15 +69,15 @@
 
     function accept(answer){
       const messages = [
-        "¡SABÍA QUE DIRÍAS SÍ! 🎉",
-        "¡QUÉ DECISIÓN TAN ACERTADA! 💘",
-        "Mi investigación de mercado no se equivocaba 📊"
+        "¡Te amo! 💕",
+        "Eres lo mejor que me ha pasado 💫",
+        "Sabía que dirías que sí 😊"
       ];
       
       const randomMsg = messages[Math.floor(Math.random() * messages.length)];
       alert(randomMsg);
       
-      const msg = encodeURIComponent("NOTICIAS: " + answer + " 💘 (Acabas de ser contratada oficialmente)");
+      const msg = encodeURIComponent(answer + " 💕 (Acabas de hacerme el hombre más feliz)");
       // En móvil abre WhatsApp directamente (si está instalado)
       window.location.href = `https://wa.me/${PHONE}?text=${msg}`;
     }
